@@ -7,8 +7,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class AdnCaseResponse {
-    private boolean isMutant;
+@AllArgsConstructor
+public class StatsView {
+
+    private Long countMutantDna;
+    private Long countHumanDna;
+    private float ratio;
+
 }

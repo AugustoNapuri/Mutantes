@@ -1,14 +1,30 @@
 package com.meli.Mutantes.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.ToString;
+import com.meli.Mutantes.entities.util.ArrayToStringConverter;
+import lombok.*;
 
-@Data
+import javax.persistence.*;
+import java.io.Serializable;
+
 @AllArgsConstructor
 @ToString
-public class AdnCase {
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+public class AdnCase implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Convert(converter = ArrayToStringConverter.class)
     private String[] adn;
     private boolean isMutant;
+    private int mutantSequences;
+
+    public AdnCase(String[] adn) {
+        this.isMutant = false;
+        this.mutantSequences = 0;
+        this.adn = adn;
+    }
 }
