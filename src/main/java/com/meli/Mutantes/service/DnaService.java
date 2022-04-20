@@ -1,9 +1,8 @@
 package com.meli.Mutantes.service;
 
-
-import com.meli.Mutantes.entities.AdnCase;
-import com.meli.Mutantes.repository.AdnRepository;
-import com.meli.Mutantes.util.AdnSequenceUtil;
+import com.meli.Mutantes.entities.DnaCase;
+import com.meli.Mutantes.repository.DnaRepository;
+import com.meli.Mutantes.util.DnaSequenceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,36 +13,36 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Service
-public class AdnService {
+public class DnaService {
 
-    private static final Logger LOGGER = Logger.getLogger( AdnService.class.getName() );
+    private static final Logger LOGGER = Logger.getLogger( DnaService.class.getName() );
     @Autowired
-    private AdnRepository repository;
+    private DnaRepository repository;
     @Autowired
-    private AdnSequenceUtil adnSequenceUtil;
+    private DnaSequenceUtil dnaSequenceUtil;
 
-    public AdnCase checkAdn(AdnCase adnCase) {
+    public DnaCase checkDna(DnaCase dnaCase) {
         int matchesCounter = 0;
-        String[] dnaRows = adnCase.getAdn();
-        String[] dnaColumns = adnSequenceUtil.extractColumns(adnCase.getAdn());
-        String[] diagonales = adnSequenceUtil.extractDiagonals(adnCase.getAdn());
+        String[] dnaRows = dnaCase.getDna();
+        String[] dnaColumns = dnaSequenceUtil.extractColumns(dnaCase.getDna());
+        String[] diagonales = dnaSequenceUtil.extractDiagonals(dnaCase.getDna());
 
         matchesCounter += analizeAdnSequences(dnaRows);
         matchesCounter += analizeAdnSequences(dnaColumns);
         matchesCounter += analizeAdnSequences(diagonales);
-        adnCase.setMutantSequences(matchesCounter);
+        dnaCase.setAmountMutantSequences(matchesCounter);
 
-        if (adnCase.getMutantSequences() >= 2) {
-            adnCase.setMutant(true);
+        if (dnaCase.getAmountMutantSequences() >= 2) {
+            dnaCase.setMutant(true);
         }
-        repository.save(adnCase);
-        return adnCase;
+        repository.save(dnaCase);
+        return dnaCase;
     }
 
     private int analizeAdnSequences(String[] dnaSequences) {
         int matchesCounter = 0;
         for (String row: dnaSequences) {
-            for (String mutantDnaSequence: AdnSequenceUtil.MUTANT_DNA_SEQUENCES) {
+            for (String mutantDnaSequence: DnaSequenceUtil.MUTANT_DNA_SEQUENCES) {
                 if (row.contains(mutantDnaSequence)) {
                     matchesCounter++;
                 }
@@ -54,7 +53,7 @@ public class AdnService {
 
     public String[] getRandomAdn() {
         Random r = new Random();
-        int sizeOfSequence = r.nextInt(4) + AdnSequenceUtil.MUTANT_DNA_SEQUENCES.length;
+        int sizeOfSequence = r.nextInt(4) + DnaSequenceUtil.MUTANT_DNA_SEQUENCES.length;
         String[] nitrogens = {"A", "C", "G", "T"};
 
         String[] sequence = new String[sizeOfSequence];
@@ -69,7 +68,7 @@ public class AdnService {
         return sequence;
     }
 
-    public List<AdnCase> getAll() {
+    public List<DnaCase> getAll() {
         return repository.findAll();
     }
 }

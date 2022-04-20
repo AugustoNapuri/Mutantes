@@ -1,10 +1,10 @@
 package com.meli.Mutantes.rest;
 
-import com.meli.Mutantes.entities.AdnCase;
-import com.meli.Mutantes.service.AdnService;
-import com.meli.Mutantes.util.AdnSequenceUtil;
-import com.meli.Mutantes.view.AdnCaseRequest;
-import com.meli.Mutantes.view.AdnCaseResponse;
+import com.meli.Mutantes.entities.DnaCase;
+import com.meli.Mutantes.service.DnaService;
+import com.meli.Mutantes.util.DnaSequenceUtil;
+import com.meli.Mutantes.view.DnaCaseRequest;
+import com.meli.Mutantes.view.DnaCaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,30 +15,30 @@ import org.springframework.web.bind.annotation.*;
 public class MutantesRestController {
 
     @Autowired
-    private AdnService adnService;
+    private DnaService dnaService;
     @Autowired
-    private AdnSequenceUtil adnSequenceUtil;
+    private DnaSequenceUtil dnaSequenceUtil;
 
     @GetMapping(path = "/random")
     public ResponseEntity getRandom() {
-        return new ResponseEntity(adnService.getRandomAdn(), HttpStatus.CREATED);
+        return new ResponseEntity(dnaService.getRandomAdn(), HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity getAll() {
-        return new ResponseEntity(adnService.getAll(), HttpStatus.OK);
+        return new ResponseEntity(dnaService.getAll(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity checkMutant(@RequestBody AdnCaseRequest adnCaseRequest) {
-        if (!adnSequenceUtil.checkValidity(adnCaseRequest.getAdn())) {
+    public ResponseEntity checkMutant(@RequestBody DnaCaseRequest dnaCaseRequest) {
+        if (!dnaSequenceUtil.checkValidity(dnaCaseRequest.getDna())) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-        AdnCaseResponse adnCaseResponse = new AdnCaseResponse(
-                adnService.checkAdn(new AdnCase(adnCaseRequest.getAdn())).isMutant());
-        if (adnCaseResponse.isMutant()) {
-            return new ResponseEntity(adnCaseResponse, HttpStatus.OK);
+        DnaCaseResponse dnaCaseResponse = new DnaCaseResponse(
+                dnaService.checkDna(new DnaCase(dnaCaseRequest.getDna())).isMutant());
+        if (dnaCaseResponse.isMutant()) {
+            return new ResponseEntity(dnaCaseResponse, HttpStatus.OK);
         }
-        return new ResponseEntity(adnCaseResponse, HttpStatus.FORBIDDEN);
+        return new ResponseEntity(dnaCaseResponse, HttpStatus.FORBIDDEN);
     }
 }

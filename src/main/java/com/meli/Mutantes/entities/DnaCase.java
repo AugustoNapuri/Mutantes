@@ -12,19 +12,19 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AdnCase implements Serializable {
+public class DnaCase implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Convert(converter = ArrayToStringConverter.class)
-    private String[] adn;
+    private String[] dna;
     private boolean isMutant;
-    private int mutantSequences;
+    private int amountMutantSequences;
 
-    public AdnCase(String[] adn) {
+    public DnaCase(String[] dna) {
         this.isMutant = false;
-        this.mutantSequences = 0;
-        this.adn = adn;
+        this.amountMutantSequences = 0;
+        this.dna = dna;
     }
 }

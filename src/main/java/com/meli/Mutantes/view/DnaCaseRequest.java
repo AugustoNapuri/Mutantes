@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AdnCaseResponse {
-    private boolean isMutant;
+public class DnaCaseRequest {
+
+    private String[] dna;
 }

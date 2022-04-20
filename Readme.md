@@ -50,10 +50,10 @@ https://helpful-lens-347710.rj.r.appspot.com
 Request:
 - POST https://mutantes-meli.herokuapp.com/mutant/
 
-Request body (caso ADN mutante):
+Request body (caso dna mutante):
 
 ```
-  {"adn": ["TGGGCC","CTTTAG","TATGTC","ATCTTC","TCCCCT","CAAGTC"]}
+  {"dna": ["TGGGCC","CTTTAG","TATGTC","ATCTTC","TCCCCT","CAAGTC"]}
 ```
 
 Response 200 OK:
@@ -61,10 +61,10 @@ Response 200 OK:
 ```
   {"mutant": true}
 ```
-Request body (caso ADN humano):
+Request body (caso dna humano):
 
 ```
-  {"adn":["AATACT", "CCCAGA", "GGGATT", "AATTCC", "GGATCG", "TCACTG"]}
+  {"dna":["AATACT", "CCCAGA", "GGGATT", "AATTCC", "GGATCG", "TCACTG"]}
 ```
 
 Response 403 Forbidden:
@@ -73,10 +73,10 @@ Response 403 Forbidden:
   {"mutant": false}
 ```
 
-Request body (caso ADN Invalido):
+Request body (caso dna Invalido):
 
 ```
-  {"adn":["AAA", "TTT"]}
+  {"dna":["AAA", "TTT"]}
 ```
 
 Response 400 Bad Request
@@ -103,14 +103,14 @@ Response: 200 (application/json)
 ```
 [{
 "id": 1,
-"adn": ["TGGGCC","CTTTAG","TATGTC","ATCTTC","TCCCCT","CAAGTC"],
-"mutantSequences": 3,
+"dna": ["TGGGCC","CTTTAG","TATGTC","ATCTTC","TCCCCT","CAAGTC"],
+"amountMutantSequences": 3,
 "mutant": true
 },
 {
 "id": 2,
-"adn": ["TGGGCC","CTTTAG","TATGTC","ATCTTC","TCAACT","CAAGTC"],
-"mutantSequences": 0,
+"dna": ["TGGGCC","CTTTAG","TATGTC","ATCTTC","TCAACT","CAAGTC"],
+"amountMutantSequences": 0,
 "mutant": false
 }
 ```

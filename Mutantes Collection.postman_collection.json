@@ -15,7 +15,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"adn\": [\"TGGGCC\",\"CTTTAG\",\"TATGTC\",\"ATCTTC\",\"TCCCCT\",\"CAAGTC\"]}",
+					"raw": "{\"dna\": [\"TGGGCC\",\"CTTTAG\",\"TATGTC\",\"ATCTTC\",\"TCCCCT\",\"CAAGTC\"]}",
 					"options": {
 						"raw": {
 							"language": "json"

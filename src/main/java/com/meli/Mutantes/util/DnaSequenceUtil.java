@@ -10,9 +10,9 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Component
-public class AdnSequenceUtil {
+public class DnaSequenceUtil {
 
-    private static final Logger LOGGER = Logger.getLogger( AdnSequenceUtil.class.getName() );
+    private static final Logger LOGGER = Logger.getLogger( DnaSequenceUtil.class.getName() );
     public static final String[] MUTANT_DNA_SEQUENCES = {"AAAA", "CCCC", "GGGG", "TTTT"};
 
     public boolean checkValidity(String[] sequence) {

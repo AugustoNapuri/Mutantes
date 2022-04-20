@@ -24,7 +24,7 @@ public class IntegrationTest extends MutantesApplicationTests{
         mockMvc.perform(
                         MockMvcRequestBuilders.post("/mutant")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content("{\"adn\": [\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]}")
+                                .content("{\"dna\": [\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]}")
                 )
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -33,7 +33,7 @@ public class IntegrationTest extends MutantesApplicationTests{
         mockMvc.perform(
                         MockMvcRequestBuilders.post("/mutant")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content("{\"adn\": [\"XXXX\",\"XXXX\",\"XXXX\",\"XXXX\"]}")
+                                .content("{\"dna\": [\"XXXX\",\"XXXX\",\"XXXX\",\"XXXX\"]}")
                 )
                 .andExpect(status().isForbidden());
 
@@ -46,7 +46,7 @@ public class IntegrationTest extends MutantesApplicationTests{
         mockMvc.perform(
                         MockMvcRequestBuilders.post("/mutant")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content("{\"adn\": [\"ATGCGA\",\"TCACTG\"]}")
+                                .content("{\"dna\": [\"ATGCGA\",\"TCACTG\"]}")
                 )
                 .andExpect(status().isBadRequest());
 
