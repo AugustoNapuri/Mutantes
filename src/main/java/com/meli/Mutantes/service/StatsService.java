@@ -13,8 +13,8 @@ public class StatsService {
 
     public StatsView getStats() {
         Long countMutant = adnRepository.countByIsMutantTrue();
-        Long countHuman = adnRepository.count() - countMutant;
-        float ratio = countHuman == 0 ? 1.0f : countMutant / countHuman;
-        return new StatsView(countMutant, countHuman, ratio);
+        Long countTotal = adnRepository.count();
+        float ratio = countTotal == 0 ? 0.0f : (float) countMutant / countTotal;
+        return new StatsView(countMutant, countTotal - countMutant, ratio);
     }
 }

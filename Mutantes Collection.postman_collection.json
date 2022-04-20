@@ -9,25 +9,13 @@
 			"name": "POST Mutant",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "pass",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "user",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"adn\": [\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]}",
+					"raw": "{\"adn\": [\"TGGGCC\",\"CTTTAG\",\"TATGTC\",\"ATCTTC\",\"TCCCCT\",\"CAAGTC\"]}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -35,8 +23,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{domain}}/mutant",
-					"protocol": "http",
+					"raw": "{{domain}}/mutant",
 					"host": [
 						"{{domain}}"
 					],
@@ -53,8 +40,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{domain}}/stats",
-					"protocol": "http",
+					"raw": "{{domain}}/stats",
 					"host": [
 						"{{domain}}"
 					],
@@ -71,8 +57,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{domain}}/mutant",
-					"protocol": "http",
+					"raw": "{{domain}}/mutant",
 					"host": [
 						"{{domain}}"
 					],
@@ -89,8 +74,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{domain}}/mutant/random",
-					"protocol": "http",
+					"raw": "{{domain}}/mutant/random",
 					"host": [
 						"{{domain}}"
 					],

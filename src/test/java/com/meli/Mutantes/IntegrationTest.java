@@ -57,7 +57,7 @@ public class IntegrationTest extends MutantesApplicationTests{
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.countMutantDna").value(1))
                 .andExpect(jsonPath("$.countHumanDna").value(1))
-                .andExpect(jsonPath("$.ratio").value(1.0f));
+                .andExpect(jsonPath("$.ratio").value(0.5f));
 
         mockMvc.perform(
                         MockMvcRequestBuilders.get("/mutant/random")
