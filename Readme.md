@@ -2,7 +2,13 @@
 
 Examen entrevista para Mercado Libre
 
-Se puede ver una version del proyecto subido a un app engine de Google Cloud:
+Se subio la aplicacion a 2 servidores:
+
+#1 Heroku
+ Fue muy rapido y sencillo de deployar.
+* URL = https://mutantes-meli.herokuapp.com/
+#2 Google Cloud 
+No tuve resultados favorables con respecto a la velocidad y estabilidad en la version gratuita.
 
 * URL = https://helpful-lens-347710.rj.r.appspot.com
 
@@ -33,7 +39,7 @@ mvn spring-boot:run
 ### API Url
 
 URL local: http://localhost:8081
-
+URL Heroku https://mutantes-meli.herokuapp.com/
 URL hosteada en Google Cloud: 
 
 https://helpful-lens-347710.rj.r.appspot.com
@@ -42,7 +48,7 @@ https://helpful-lens-347710.rj.r.appspot.com
 #### Es mutante
 
 Request:
-- POST https://helpful-lens-347710.rj.r.appspot.com/mutant/
+- POST https://mutantes-meli.herokuapp.com/mutant/
 
 Request body (caso ADN mutante):
 
@@ -78,7 +84,7 @@ Response 400 Bad Request
 #### Estadisticas
 
 Request:
-- GET https://helpful-lens-347710.rj.r.appspot.com/mutant/stats
+- GET https://mutantes-meli.herokuapp.com/mutant/stats
 
 Response: 200 (application/json)
 
@@ -91,7 +97,7 @@ Response: 200 (application/json)
 ```
 #### Obtener todos los registros
 Este servicio lo agregue a modo de prueba para que vean como se persisten los objetos en la BD
-- GET https://helpful-lens-347710.rj.r.appspot.com/mutant/
+- GET https://mutantes-meli.herokuapp.com/mutant/
 
 Response: 200 (application/json)
 ```
@@ -109,7 +115,7 @@ Response: 200 (application/json)
 }
 ```
 #### Obtener Sequencia Random
-- GET https://helpful-lens-347710.rj.r.appspot.com/mutant/random
+- GET https://mutantes-meli.herokuapp.com/mutant/random
 
 Este servicio se implemento a modo de prueba para que puedan probar con diferentes secuencias facilmente a modo de prueba.
 
