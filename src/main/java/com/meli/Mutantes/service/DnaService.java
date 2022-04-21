@@ -27,9 +27,9 @@ public class DnaService {
         String[] dnaColumns = dnaSequenceUtil.extractColumns(dnaCase.getDna());
         String[] diagonales = dnaSequenceUtil.extractDiagonals(dnaCase.getDna());
 
-        matchesCounter += analizeAdnSequences(dnaRows);
-        matchesCounter += analizeAdnSequences(dnaColumns);
-        matchesCounter += analizeAdnSequences(diagonales);
+        matchesCounter += analizeDnaSequences(dnaRows);
+        matchesCounter += analizeDnaSequences(dnaColumns);
+        matchesCounter += analizeDnaSequences(diagonales);
         dnaCase.setAmountMutantSequences(matchesCounter);
 
         if (dnaCase.getAmountMutantSequences() >= 2) {
@@ -39,7 +39,7 @@ public class DnaService {
         return dnaCase;
     }
 
-    private int analizeAdnSequences(String[] dnaSequences) {
+    private int analizeDnaSequences(String[] dnaSequences) {
         int matchesCounter = 0;
         for (String row: dnaSequences) {
             for (String mutantDnaSequence: DnaSequenceUtil.MUTANT_DNA_SEQUENCES) {
@@ -51,7 +51,7 @@ public class DnaService {
         return matchesCounter;
     }
 
-    public String[] getRandomAdn() {
+    public String[] getRandomDna() {
         Random r = new Random();
         int sizeOfSequence = r.nextInt(4) + DnaSequenceUtil.MUTANT_DNA_SEQUENCES.length;
         String[] nitrogens = {"A", "C", "G", "T"};

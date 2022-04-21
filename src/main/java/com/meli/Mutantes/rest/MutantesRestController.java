@@ -21,7 +21,7 @@ public class MutantesRestController {
 
     @GetMapping(path = "/random")
     public ResponseEntity getRandom() {
-        return new ResponseEntity(dnaService.getRandomAdn(), HttpStatus.CREATED);
+        return new ResponseEntity(dnaService.getRandomDna(), HttpStatus.CREATED);
     }
 
     @GetMapping

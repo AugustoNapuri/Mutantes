@@ -2,15 +2,10 @@
 
 Examen entrevista para Mercado Libre
 
-Se subio la aplicacion a 2 servidores:
+Se deployo la aplicacion en Heroku:
 
-#1 Heroku
- Fue muy rapido y sencillo de deployar.
+#Heroku
 * URL = https://mutantes-meli.herokuapp.com/
-#2 Google Cloud 
-No tuve resultados favorables con respecto a la velocidad y estabilidad en la version gratuita.
-
-* URL = https://helpful-lens-347710.rj.r.appspot.com
 
 ### Implementacion y tecnologias usadas
 
@@ -40,9 +35,6 @@ mvn spring-boot:run
 
 URL local: http://localhost:8081
 URL Heroku https://mutantes-meli.herokuapp.com/
-URL hosteada en Google Cloud: 
-
-https://helpful-lens-347710.rj.r.appspot.com
 
 ### Servicios
 #### Es mutante
